@@ -21,3 +21,16 @@ class Pessoa:
 
     def get_nome(self):
         return self.nome
+
+    def get_compras(self):
+        item = []
+        for itens in self.compras:
+           item.append(itens.get_nome())
+        return item
+
+    def remover_produto(self, nome):
+        for c in self.compras:
+            if c.get_nome() == nome:
+                self.compras.remove(c)
+           
+        
