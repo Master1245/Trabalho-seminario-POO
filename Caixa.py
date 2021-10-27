@@ -24,6 +24,3 @@ class Caixa:
     def __len__(self):
         return len(self.clientes)
 
-    def __str__(self):
-        return str(self.clientes)
-
