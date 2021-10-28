@@ -32,5 +32,3 @@ class Pessoa:
         for c in self.compras:
             if c.get_nome() == nome:
                 self.compras.remove(c)
-           
-        

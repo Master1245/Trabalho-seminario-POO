@@ -14,3 +14,4 @@ class Produto:
 
     def get_preco(self):
         return self.preco
+    
