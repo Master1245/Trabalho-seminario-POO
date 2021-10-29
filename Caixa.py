@@ -30,20 +30,36 @@ class Caixa:
     def fechar(self, caixas : list, nome_caixa : str):
         count = len(caixas)
         ultimo = caixas[count - 1]
-        i =0
-        for itens in caixas:
-            i+=1
-            if itens.get_nome() == nome_caixa.get_nome():
-                print("Este é o I : ",i)
-                print("Este é o count : ",count)
-                total = count - i
-                print("Este é o total : ",total)
-                p =  count
-                while total < p:
-                    print(caixas[total].get_nome())
-                    total+=1
-        # if caixas[count-1].get_estado_Caixa() == 'aberto':
-        #     caixas[count-1].fechar_caixa()
+        if ultimo.get_nome() == nome_caixa.get_nome():
+            ultimo.fechar_Caixa()
+            return "Caixa fechar com sucesso"
+        p = 0
+        p = count * 2
+        count = count - p
+        while count < p:
+            print(caixas[count].get_nome())
+            count+=1
+        # i =0
+        # emAberto = []
+        # for itens in caixas:
+        #     i+=1
+        #     if itens.get_nome() == nome_caixa.get_nome():
+        #         total = count - i
+        #         print(total)
+        #         while total < count:
+        #             print("este é o total",total)
+        #             print("este é o p",p)
+        #             print(caixas[total].get_nome())
+        #             emAberto.append(caixas[total])
+        #             total+=1
+        #         p = ''
+        #         for itens in emAberto:
+        #             p = str(itens.get_nome())+": "+ p
+        #         if emAberto == []:
+        #             nome_caixa.fechar_Caixa()
+        #             return "Caixa fechado"
+        #         else:
+        #             return "Favor fechar esses caixas primeiro"+" "+p
 
     def fechar_Caixa(self):
         self.estado = 'fechado'
