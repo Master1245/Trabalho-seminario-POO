@@ -8,32 +8,41 @@ def main():
     pessoa2 = Pessoa()
     pessoa3 = Pessoa()
     pessoa4 = Pessoa()
-    pessoa1.set_nome("João")
-    pessoa2.set_nome("Maria")
-    pessoa3.set_nome("Pedro")
-    pessoa4.set_nome("José")
 
     caixa1 = Caixa()
     caixa2 = Caixa()
     caixa3 = Caixa()
     caixa4 = Caixa()
+
+    produto1 = Produto()
+    produto2 = Produto()
+    produto3 = Produto()
+    produto4 = Produto()
+
+    pessoa1.set_nome("João")
+    pessoa2.set_nome("Maria")
+    pessoa3.set_nome("Pedro")
+    pessoa4.set_nome("José")
+
     caixa1.set_nome("Caixa 1")
     caixa2.set_nome("Caixa 2")
     caixa3.set_nome("Caixa 3")
     caixa4.set_nome("Caixa 4")
-    
     
     caixa1.entrar([pessoa1])
     caixa2.entrar([pessoa2])
     caixa3.entrar([pessoa3])
     caixa4.entrar([pessoa4])
 
-    print("Quantidade de pessoas no caixa: {}".format(caixa1.__len__()))
+    caixa1.abrir()
+    caixa2.abrir()
+    caixa3.abrir()
+    caixa4.abrir()
 
-    produto1 = Produto()
-    produto2 = Produto()
-    produto3 = Produto()
-    produto4 = Produto()
+    print("Quantidade de pessoas no caixa: {}".format(caixa1.__len__()))
+    print("Quantidade de pessoas no caixa: {}".format(caixa2.__len__()))
+    print("Quantidade de pessoas no caixa: {}".format(caixa3.__len__()))
+    print("Quantidade de pessoas no caixa: {}".format(caixa4.__len__()))
 
     produto1.set_nome("Coca-cola")
     produto2.set_nome("Doritos")
@@ -56,10 +65,13 @@ def main():
     pessoa4.compras(compra4)
     
     pessoa3.remover_produto("Nesgresco")
-    print("Nome da pessoa: {}, e essas foram as compras dela {} e o caixa que ela esta é {} o total da compra foi de R${}".format(pessoa1.get_nome(), pessoa1.get_compras(), caixa1.get_nome(), pessoa1.total()))
-    print("Nome da pessoa: {}, e essas foram as compras dela {} e o caixa que ela esta é {} o total da compra foi de R${}".format(pessoa2.get_nome(), pessoa2.get_compras(), caixa2.get_nome(), pessoa2.total()))
-    print("Nome da pessoa: {}, e essas foram as compras dela {} e o caixa que ela esta é {} o total da compra foi de R${}".format(pessoa3.get_nome(), pessoa3.get_compras(), caixa3.get_nome(), pessoa3.total()))
-    print("Nome da pessoa: {}, e essas foram as compras dela {} e o caixa que ela esta é {} o total da compra foi de R${}".format(pessoa4.get_nome(), pessoa4.get_compras(), caixa4.get_nome(), pessoa4.total()))
+    print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa1.get_nome(), pessoa1.get_compras(), caixa1.get_nome(), pessoa1.total()))
+    print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa2.get_nome(), pessoa2.get_compras(), caixa2.get_nome(), pessoa2.total()))
+    print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa3.get_nome(), pessoa3.get_compras(), caixa3.get_nome(), pessoa3.total()))
+    print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa4.get_nome(), pessoa4.get_compras(), caixa4.get_nome(), pessoa4.total()))
+
+    caixa4.fechar()
+
 
 
 if __name__ == "__main__":

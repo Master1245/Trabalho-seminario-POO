@@ -1,9 +1,9 @@
-from Pessoa import Pessoa
 
 class Caixa:
     def __init__(self):
         self.clientes = []
         self.nome = ''
+        self.estado = ''
         
     def entrar(self, cliente : list):
         for itens in cliente:
@@ -21,5 +21,20 @@ class Caixa:
     def get_nome(self):
         return self.nome
 
+    def get_clientes(self):
+        return self.clientes
+
+    def abrir(self):
+        self.estado = 'aberto'
+        self.caixa = Caixa()
+    def fechar(self):
+        print(self.caixa)
+
+    def get_estado_Caixa(self):
+        return self.estado
+
     def __len__(self):
         return len(self.clientes)
+    
+    def __repr__(self):
+        return str(self.__dict__)

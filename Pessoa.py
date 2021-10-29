@@ -32,3 +32,9 @@ class Pessoa:
         for c in self.compras:
             if c.get_nome() == nome:
                 self.compras.remove(c)
+
+    def get_caixa(self):
+        caixa = []
+        for c in self.compras:
+            caixa.append(c.get_caixa())
+        return caixa
