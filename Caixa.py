@@ -26,9 +26,27 @@ class Caixa:
 
     def abrir(self):
         self.estado = 'aberto'
-        self.caixa = Caixa()
-    def fechar(self):
-        print(self.caixa)
+        
+    def fechar(self, caixas : list, nome_caixa : str):
+        count = len(caixas)
+        ultimo = caixas[count - 1]
+        i =0
+        for itens in caixas:
+            i+=1
+            if itens.get_nome() == nome_caixa.get_nome():
+                print("Este é o I : ",i)
+                print("Este é o count : ",count)
+                total = count - i
+                print("Este é o total : ",total)
+                p =  count
+                while total < p:
+                    print(caixas[total].get_nome())
+                    total+=1
+        # if caixas[count-1].get_estado_Caixa() == 'aberto':
+        #     caixas[count-1].fechar_caixa()
+
+    def fechar_Caixa(self):
+        self.estado = 'fechado'
 
     def get_estado_Caixa(self):
         return self.estado

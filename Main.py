@@ -70,7 +70,8 @@ def main():
     print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa3.get_nome(), pessoa3.get_compras(), caixa3.get_nome(), pessoa3.total()))
     print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa4.get_nome(), pessoa4.get_compras(), caixa4.get_nome(), pessoa4.total()))
 
-    caixa4.fechar()
+    caixas = [caixa1,caixa2,caixa3,caixa4]
+    caixa2.fechar(caixas, caixa2)
 
 
 
