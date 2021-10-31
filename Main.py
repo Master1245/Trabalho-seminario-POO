@@ -6,7 +6,7 @@ from Produto import Produto
 def main():
     pessoa1 = Pessoa()
     pessoa2 = Pessoa()
-
+    pessoa3 = Pessoa()
     caixa1 = Caixa()
     caixa2 = Caixa()
     caixa3 = Caixa()
@@ -18,6 +18,7 @@ def main():
 
     pessoa1.set_nome("João")
     pessoa2.set_nome("Maria")
+    pessoa3.set_nome("Pedro")
 
     caixas = [caixa1, caixa2, caixa3]
     caixa1.set_nome("Caixa 1", caixas)
@@ -26,6 +27,7 @@ def main():
 
     caixa1.entrar([pessoa1])
     caixa2.entrar([pessoa2])
+    caixa3.entrar([pessoa3])
 
     caixa1.abrir()
     caixa2.abrir()
@@ -44,15 +46,18 @@ def main():
     compra1 = [produto1, produto2]
     compra2 = [produto3, produto4]
     compra3 = [produto1, produto2, produto3, produto4]
-    compra4 = [produto4]
-
     pessoa1.compras(compra1)
     pessoa2.compras(compra2)
+    pessoa3.compras(compra3)
 
     # print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa1.get_nome(), pessoa1.get_compras(), caixa1.get_nome(), pessoa1.total()))
     # print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa2.get_nome(), pessoa2.get_compras(), caixa2.get_nome(), pessoa2.total()))
 
+    print(caixa1.sair())
+    print(caixa2.sair())
+    print(caixa3.sair())
     caixas = [caixa1,caixa2,caixa3]
+
     print(caixa3.fechar(caixas, caixa3))
     
     print(caixa2.fechar(caixas, caixa2))
