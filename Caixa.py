@@ -10,7 +10,7 @@ class Caixa:
             self.clientes.append(itens)
 
     def sair(self):
-        if self.clientes < 0:
+        if len(self.clientes) < 0:
             return "O caixa {} ja está vazio".format(self.nome)
         return self.clientes.pop(0)
 
