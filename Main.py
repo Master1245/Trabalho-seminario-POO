@@ -71,9 +71,11 @@ def main():
     print("O {}, comprou esses itens {} no caixa {} e o total da compra foi de R${}".format(pessoa4.get_nome(), pessoa4.get_compras(), caixa4.get_nome(), pessoa4.total()))
 
     caixas = [caixa1,caixa2,caixa3,caixa4]
-    p = caixa3.fechar(caixas, caixa3)
+    caixa4.fechar(caixas, caixa4)
+    # caixa3.fechar(caixas, caixa3)
+    # caixa2.fechar(caixas, caixa2)
+    p = caixa1.fechar(caixas, caixa1)
     print(p)
-
 
 if __name__ == "__main__":
     main()
