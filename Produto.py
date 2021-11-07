@@ -1,7 +1,7 @@
 class Produto:
-    def __init__(self):
-        self.nome = ''
-        self.preco = ''
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
 
     def set_nome(self, nome):
         self.nome = nome

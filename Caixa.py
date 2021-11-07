@@ -1,9 +1,9 @@
 
 class Caixa:
-    def __init__(self):
+    def __init__(self, nome):
         self.clientes = []
-        self.nome = ''
-        self.estado = ''
+        self.nome = nome
+        self.estado = 'fechado'
         
     def entrar(self, cliente : list):
         for itens in cliente:
@@ -52,8 +52,6 @@ class Caixa:
     def __repr__(self):
         return str(self.__dict__)
 
-    def __str__(self):
-        return "O caixa {} está com {} clientes".format(self.nome, len(self.clientes))
 
     def fechar(self, caixas : list, nome_caixa : str):
         count = len(caixas)
@@ -61,9 +59,9 @@ class Caixa:
 
         if ultimo.get_nome() == nome_caixa.get_nome():
             ultimo.fechar_Caixa()
-            return "O... Caixa {} foi fechado com sucesso".format(nome_caixa.get_nome())
+            return "O Caixa {} foi fechado com sucesso".format(nome_caixa.get_nome())
         if ultimo.get_estado_Caixa() == 'aberto':
-            return "..Favor fechar o caixa " + ultimo.get_nome()
+            return "Favor fechar o caixa " + ultimo.get_nome()
 
         t = -1
         p = -2
