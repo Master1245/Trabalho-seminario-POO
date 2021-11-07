@@ -107,7 +107,7 @@ def main():
                             if iten.get_nome() == produto:
                                 itens.compras(iten)
                                 print("Produto adicionado com sucesso")
-                                print("Produto no carrinho da pessoa :",itens.get_compras())
+                                print(f"Produto no carrinho do(A) {itens.get_nome()} :",itens.get_compras())
                                 sleep(2)
                                 p = 1
                                 break
@@ -161,9 +161,20 @@ def main():
 
                         print(f"total de itens do(a) {pessoa} : ", pessoa.get_compras())
                         print("\n")
-                        print("Total da venda : ", pessoa.total())
-                        itens.sair()
-                        pessoa.pop(0)
+                        print("Total da venda : ", pessoa.total(), "\n")
+                        print("Digite 1 para pagar ou 2 para voltar ao caixa")
+                        opcao = int(input())
+                        match opcao:
+                            case 1:
+                                print(f"O(A) {pessoa} pagou com sucesso")            
+                                itens.sair()
+                                pessoas.pop(0)
+                                sleep(2)
+                            case 2:
+                                print(f"O(A) {pessoa} voltou ao caixa") 
+                                sleep(2)
+                                break
+                        
                         print("Pessoa removida com sucesso")
                         sleep(2)
                     
