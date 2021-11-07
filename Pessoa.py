@@ -15,9 +15,11 @@ class Pessoa:
 
     def total(self):
         total = ''
-        total = str(total)
+        total = int(total)
         for c in self.itens:
             total += c.get_preco()
+        total = str(total)
+        total = "R$" + total
         return total
 
     def set_nome(self, nome):

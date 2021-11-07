@@ -60,10 +60,11 @@ def main():
                     if itens.get_estado_Caixa() == "aberto":
                         print(itens.get_nome())
                 
-                caixa = input("Digite qual caixa deseja fechar")
+                caixa = input("Digite qual caixa deseja fechar : ")
                 for itens in caixas:
                     if caixa == itens.get_nome():
-                        print(itens.fechar())
+                        print(itens.fechar(caixas, itens))
+                        sleep(2)
                         break
                 else:
                     print("Caixa nao encontrado")

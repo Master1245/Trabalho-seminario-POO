@@ -4,7 +4,7 @@ class Caixa:
     def __init__(self, nome):
         self.clientes = []
         self.nome = nome
-        self.estado = 'fechado'
+        self.estado = 'aberto'
         
     def entrar(self, cliente : Pessoa):
         self.clientes.append(cliente)
@@ -56,7 +56,6 @@ class Caixa:
     def fechar(self, caixas : list, nome_caixa : str):
         count = len(caixas)
         ultimo = caixas[count - 1]
-
         if ultimo.get_nome() == nome_caixa.get_nome():
             ultimo.fechar_Caixa()
             return "O Caixa {} foi fechado com sucesso".format(nome_caixa.get_nome())
