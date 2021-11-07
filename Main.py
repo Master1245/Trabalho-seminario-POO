@@ -115,6 +115,8 @@ def main():
                             print("Produto nao existe")
                             sleep(2)
                             break
+                if p == 0:
+                    print("Pessoa nao existe")
 
             case 7:
                 for itens in produtos:
@@ -145,8 +147,11 @@ def main():
                             print("Pessoa nao existe")
                             sleep(2)
                             break
+                if p == 0:
+                    print("Caixa nao existe")
 
             case 9:
+                p = 0
                 caixa = input("Digite o nome do caixa que deseja atende a pessoa : ")
                 for itens in caixas:
                     
@@ -162,7 +167,8 @@ def main():
                         print(f"total de itens do(a) {pessoa} : ", pessoa.get_compras())
                         print("\n")
                         print("Total da venda : ", pessoa.total(), "\n")
-                        print("Digite 1 para pagar ou 2 para voltar ao caixa")
+                        print("Digite 1 para pagar ou 2 para voltar ao caixa : ")
+                        p = 1
                         opcao = int(input())
                         match opcao:
                             case 1:
@@ -174,10 +180,9 @@ def main():
                                 print(f"O(A) {pessoa} voltou ao caixa") 
                                 sleep(2)
                                 break
-                        
-                        print("Pessoa removida com sucesso")
-                        sleep(2)
-                    
+                if p == 0:
+                    print("Caixa nao existe")
+
             case _:
                 print("Opcao invalida")
                 sleep(2)
