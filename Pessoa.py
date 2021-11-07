@@ -14,10 +14,11 @@ class Pessoa:
         self.itens.append(Produto)
 
     def total(self):
-        total = ''
+        total = 0
         total = int(total)
         for c in self.itens:
-            total += c.get_preco()
+            soma = int(c.get_preco())
+            total += soma
         total = str(total)
         total = "R$" + total
         return total
@@ -32,6 +33,12 @@ class Pessoa:
         item = []
         for itens in self.itens:
             item.append(itens.get_nome())
+        return item
+
+    def get_compras_valor(self):
+        item = []
+        for itens in self.itens:
+            item.append(itens.get_nome() + ": " +"R$"+ itens.get_preco())
         return item
 
     def remover_produto(self, nome):

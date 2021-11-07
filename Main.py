@@ -107,7 +107,7 @@ def main():
                         for iten in produtos:
                             if iten.get_nome() == produto:
                                 itens.compras(iten)
-                                print("Produto adicionado com sucesso")
+                                print("Pessoa adicionado com sucesso")
                                 print(f"Produto no carrinho do(A) {itens.get_nome()} :",itens.get_compras())
                                 sleep(2)
                                 p = 1
@@ -118,6 +118,7 @@ def main():
                             break
                 if p == 0:
                     print("Pessoa nao existe")
+                    sleep(2)
 
             case 7:
                 for itens in produtos:
@@ -139,7 +140,7 @@ def main():
                         for iten in pessoas:
                             if iten.get_nome() == pessoa:
                                 itens.entrar(iten)
-                                print("Pessoa adicionada com sucesso")
+                                print("Produto adicionado com sucesso")
                                 print("Pessoas no caixa :", [i.get_nome() for i in itens.get_clientes()])
                                 sleep(2)
                                 p = 1
@@ -150,6 +151,7 @@ def main():
                             break
                 if p == 0:
                     print("Caixa nao existe")
+                    sleep(2)
 
             case 9:
                 p = 0
@@ -168,10 +170,11 @@ def main():
                         print(f"total de itens do(a) {pessoa} : ", pessoa.get_compras())
                         print("\n")
                         print("Total da venda : ", pessoa.total(), "\n")
-                        print("Digite 1 para pagar ou 2 para voltar ao caixa : ")
+
+                        print("Descrição dos itens", pessoa.get_compras_valor())
                         p = 1
-                        opcao = int(input())
-                        match opcao:
+                        opcao2 = int(input('Digite 1 para pagar ou 2 para voltar ao caixa :'))
+                        match opcao2:
                             case 1:
                                 print(f"O(A) {pessoa} pagou com sucesso")            
                                 itens.sair()
@@ -181,6 +184,9 @@ def main():
                                 print(f"O(A) {pessoa} voltou ao caixa") 
                                 sleep(2)
                                 break
+                            case _:
+                                print("Opcao invalida")
+                                sleep(2)
                 if p == 0:
                     print("Caixa nao existe")
 
