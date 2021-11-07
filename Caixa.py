@@ -1,3 +1,4 @@
+from Pessoa import Pessoa
 
 class Caixa:
     def __init__(self, nome):
@@ -5,9 +6,8 @@ class Caixa:
         self.nome = nome
         self.estado = 'fechado'
         
-    def entrar(self, cliente : list):
-        for itens in cliente:
-            self.clientes.append(itens)
+    def entrar(self, cliente : Pessoa):
+        self.clientes.append(cliente)
 
     def sair(self):
         if len(self.clientes) < 0:

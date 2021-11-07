@@ -8,6 +8,7 @@ def main():
     caixas = []
     produtos = []
     pessoas = []
+    p=0
     while True:
         print('......')
         print(
@@ -20,7 +21,7 @@ def main():
             "Digite 6 para adicionar um produto a uma pessoa" + "\n",
             "Digite 7 para mostrar os produtos cadastrados" + "\n",
             "Digite 8 para adicionar um pessoa ao caixa" + "\n",
-            "Digite 9 para remover um pessoa do caixa" + "\n",
+            "Digite 9 para Atender um pessoa no caixa" + "\n",
             "\n",
             "Digite um numero acima"
         )
@@ -83,73 +84,92 @@ def main():
                         break
                 else:
                     produtos.append(Produto(nome, preco))
+
                     print("Produto cadastrado com sucesso")
                     sleep(2)
 
             case 5:
-                nome = input("Digite o nome da pessoa que deseja cadastrar")
+                nome = input("Digite o nome da pessoa que deseja cadastrar : ")
                 pessoa = Pessoa(nome)
                 pessoas.append(pessoa)
                 print("Pessoa cadastrada com sucesso")
                 sleep(2)
 
             case 6:
-                pessoa = input("Digite o nome da pessoa que deseja adicionar um produto")
-                produto = input("Digite o nome do produto que deseja adicionar")
+                p = 0
+                pessoa = input("Digite o nome da pessoa que deseja adicionar um produto : ")
+                produto = input("Digite o nome do produto que deseja adicionar : ")
                 for itens in pessoas:
-                    if itens.get_nome == pessoa:
+                    if p == 1:
+                        break
+                    if itens.get_nome() == pessoa:
                         for iten in produtos:
-                            if iten.get_nome == produto:
-                                itens.compras(produto)
+                            if iten.get_nome() == produto:
+                                itens.compras(iten)
                                 print("Produto adicionado com sucesso")
+                                print("Produto no carrinho da pessoa :",itens.get_compras())
                                 sleep(2)
+                                p = 1
                                 break
                         else:
                             print("Produto nao existe")
                             sleep(2)
                             break
-                else:
-                    print("Pessoa nao existe")
-                    sleep(2)
 
             case 7:
                 for itens in produtos:
-                    print(itens.get_nome())
-                    print(itens.get_preco())
+                    print(itens.get_nome(),itens.get_preco())
                 sleep(2)
                 
             case 8:
-                caixa = input("Digite o nome do caixa que deseja adicionar uma pessoa")
-                pessoa = input("Digite o nome da pessoa que deseja adicionar")
+                p = 0
+                caixa = input("Digite o nome do caixa que deseja adicionar uma pessoa : ")
+                pessoa = input("Digite o nome da pessoa que deseja adicionar : ")
                 for itens in caixas:
-                    if itens.get_nome == caixa:
+                    if p == 1:
+                        break
+                    if itens.get_nome() == caixa:
+                        if itens.get_estado_Caixa() == "fechado":
+                            print("Caixa esta fechado")
+                            sleep(2)
+                            break
                         for iten in pessoas:
-                            if iten.get_nome == pessoa:
-                                itens.entrar(pessoa)
+                            if iten.get_nome() == pessoa:
+                                itens.entrar(iten)
+                                print("Pessoa adicionada com sucesso")
+                                print("Pessoas no caixa :", [i.get_nome() for i in itens.get_clientes()])
+                                sleep(2)
+                                p = 1
                                 break
                         else:
                             print("Pessoa nao existe")
+                            sleep(2)
                             break
-                else:
-                    print("Caixa nao existe")
 
             case 9:
-                caixa = input("Digite o nome do caixa que deseja remover uma pessoa")
-                pessoa = input("Digite o nome da pessoa que deseja remover")
+                caixa = input("Digite o nome do caixa que deseja atende a pessoa : ")
                 for itens in caixas:
-                    if itens.get_nome == caixa:
-                        for iten in pessoas:
-                            if iten.get_nome == pessoa:
-                                itens.sair(pessoa)
-                                break
-                        else:
-                            print("Pessoa nao existe")
-                            break
-                else:
-                    print("Caixa nao existe")
+                    
+                    print(itens.get_nome())
+                    if itens.get_nome() == caixa:
+                        print("Pessoas no caixa")
+                        print([i.get_nome() for i in itens.get_clientes()], "\n")
 
+                        print("Voçe esta atendendo o(a)", itens.get_clientes()[0])
+
+                        pessoa = itens.get_clientes()[0]
+
+                        print(f"total de itens do(a) {pessoa} : ", pessoa.get_compras())
+                        print("\n")
+                        print("Total da venda : ", pessoa.total())
+                        itens.sair()
+                        pessoa.pop(0)
+                        print("Pessoa removida com sucesso")
+                        sleep(2)
+                    
             case _:
                 print("Opcao invalida")
-    
+                sleep(2)
+
 if __name__ == "__main__":
     main()

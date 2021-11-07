@@ -1,5 +1,6 @@
 from Produto import Produto
 
+compras = []
 class Pessoa:
     def __init__(self, nome):
         self.nome = nome
@@ -7,12 +8,13 @@ class Pessoa:
     def __str__(self):
         return self.nome
 
-    def compras(self, Produto : list):
-        self.compras = Produto
+    def compras(self, Produto : Produto):
+        compras.append(Produto)
 
     def total(self):
         total = 0
-        for c in self.compras:
+        total = str(total)
+        for c in compras:
             total += c.get_preco()
         return total
 
@@ -24,17 +26,11 @@ class Pessoa:
 
     def get_compras(self):
         item = []
-        for itens in self.compras:
-           item.append(itens.get_nome())
+        for itens in compras:
+            item.append(itens.get_nome())
         return item
 
     def remover_produto(self, nome):
-        for c in self.compras:
+        for c in compras:
             if c.get_nome() == nome:
-                self.compras.remove(c)
-
-    def get_caixa(self):
-        caixa = []
-        for c in self.compras:
-            caixa.append(c.get_caixa())
-        return caixa
+                compras.remove(c)
