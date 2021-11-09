@@ -4,7 +4,7 @@ class Caixa:
     def __init__(self, nome):
         self.clientes = []
         self.nome = nome
-        self.estado = 'aberto'
+        self.estado = 'fechado'
         
     def entrar(self, cliente : Pessoa):
         self.clientes.append(cliente)
